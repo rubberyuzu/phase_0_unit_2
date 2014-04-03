@@ -69,5 +69,17 @@ end
 # Also I did not use non-destructive methods at all, and don't know where to use it....
 
 
-
-
+# 6.RETRY!
+# 6-1.solution
+def create_group(array)
+unit1=array.shuffle!.each_slice(4).to_a
+unit2=array.shuffle!.each_slice(4).to_a
+unit3=array.shuffle!.each_slice(4).to_a
+puts "Unit1: #{unit1.to_s} Unit2: #{unit2.to_s} Unit3: #{unit3.to_s}"
+end
+# 6-2.test
+puts create_group(array).class == Array
+puts create_group(array).flatten.length == 27
+puts create_group(array).length == 7
+puts create_group(array).at(0) != create_group(array).at(1) && create_group(array).at(1) != create_group(array).at(2)
+     && create_group(array).at(2) != create_group(array).at(0)
