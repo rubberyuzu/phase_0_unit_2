@@ -19,12 +19,7 @@ end
 
 #refactoring
 def separate_comma(number)
-	array = number.to_s.split(//).reverse.each_slice(3).to_a.reverse
-	new_array = []
-	for i in 0..array.length-1 do
-	new_array << array.at(i).reverse.join
-	end
-	new_array.join(",")
+	number.to_s.split(//).reverse.each_slice(3).map{|x| x.join}.join(",").reverse
 end
 
 
