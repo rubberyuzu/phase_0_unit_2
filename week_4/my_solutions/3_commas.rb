@@ -19,7 +19,7 @@ end
 
 #refactoring
 def separate_comma(number)
-	array = number.to_s.split(//).reverse!.each_slice(3).to_a.reverse
+	array = number.to_s.split(//).reverse.each_slice(3).to_a.reverse
 	new_array = []
 	for i in 0..array.length-1 do
 	new_array << array.at(i).reverse.join
@@ -31,5 +31,14 @@ end
 #testing code
 number = 10000000000
 puts separate_comma(number).class == String 
-puts separate_comma(number).split(//).at(0) == 10
+puts separate_comma(number).split(//).at(0) == "1"
+puts separate_comma(number).length == 14
+puts separate_comma(number).split(//).at(2) == ","
+
 #reflection
+# I checked if my code was working so many times using irb, and I failed so many times.
+# I used many methods I learned from previous exercises, which helped me a lot in coding simply.
+# I am still confused about how to use rspec, "require_relative" method never works on my
+# command line. I should ask about this in office hours.
+# I got familiar with at method in this challenge.
+# But I still am not sure about when to use non-destructive method...
