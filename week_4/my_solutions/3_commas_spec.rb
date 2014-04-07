@@ -1,14 +1,6 @@
-# require_relative "3_commas.rb"
+require_relative "3_commas.rb"
 #=> Make sure you change this to the name of your code file! Save that file
 # into this repo. 
-def separate_comma(number)
-   array = number.to_s.split(//).reverse!.each_slice(3).to_a.reverse
-   new_array = []
-   for i in 0..array.length-1 do
-   new_array << array.at(i).reverse.join
-   end
-   new_array.join(",")
-end
 
 
 def random_num(min, max)
