@@ -1,7 +1,7 @@
 # U2.W5: Class Warfare, Validate a Credit Card Number
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge with: Anup.
 
 # 2. Pseudocode
 
@@ -92,6 +92,38 @@ end
 
 
 
+class CreditCard
+
+def initialize(card)
+
+@card = card  # defining the instance variable
+if @card.to_s.length !=16 # if the card length
+raise ArgumentError, 'Digits not equal to 16'
+end
+end
+
+def check_card # define check_card method
+
+ card_num = @card.to_s.split("") # take number and convert to string and split it
+ card_num.map!{|x| x.to_i} # converting the strings to integers inside the array
+ element_index = -1 # sets the value of i, being the element place of the array
+  card_num = card_num.map{|x| element_index+=1;(element_index %2 == 0 ? x*2 :x) } # looping through the array, i increases by 1 each time
+  # if i is divisble by 2, then double the value at i element , else return value
+  card_num = card_num.join.split("").map{|x| x.to_i} 
+  # convert values to strings if a value length is greater than 2, split it. else return value
+  # convert to integer
+
+
+if  (card_num.reduce(:+) % 10 == 0) # if sum of array is divisible by 10 return else false
+    return true
+else
+    return false
+end
+end
+
+
+end
+
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
@@ -113,9 +145,12 @@ assert{creditcard_bad.check_card == false}
 # 5. Reflection 
 
 
+# this was really useful for me as I could not really solve the challenge
+# last week.
+# my partner was so helpful, and it was good I had something to offer to him as well.
+# I am getting more familiar with defining classes.
 
-
-
+# this is anup's solution using simpler map methods.
 def check_card
 
  card_num = @card.to_s.split("")
